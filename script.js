@@ -7,15 +7,11 @@ var searchInput = document.querySelector('#search-input');
 function fetchWeather(location) {
     var { lat } = location;
     var { lon } = location;
-    var city = location.name;
     var apiUrl = `${weatherApiUrl}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${weatherApiKey}`;
   
     fetch(apiUrl)
     .then(function (res) {
         return res.json();
-    })
-    .then(function (data) {
-        renderItems(city, data);
     })
     .catch(function (err) {
         console.error(err);
@@ -33,7 +29,6 @@ function fetchCoords(search) {
         if (!data[0]) {
             alert('Location not found');
         } else {
-            appendToHistory(search);
             fetchWeather(data[0]);
         }
     })
@@ -42,4 +37,16 @@ function fetchCoords(search) {
     });
 }
 
-fetchCoords()
+function submitSearchForm(e) {
+    if (!searchInput.value) {
+        alert('You need to enter a city')
+      return;
+    }
+  
+    e.preventDefault();
+    var search = searchInput
+    fetchCoords(search);
+    searchInput.value = '';
+}
+
+searchForm.addEventListener('submit', submitSearchForm);
