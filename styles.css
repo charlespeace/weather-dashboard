@@ -52,3 +52,7 @@ main {
   display: inline-block;
   border-radius: 5px;
 }
+
+#search-input {
+    width: 40%;
+}
