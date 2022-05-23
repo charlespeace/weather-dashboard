@@ -53,6 +53,12 @@ main {
   border-radius: 5px;
 }
 
+.card {
+    border: 1px solid #1a1a1a;
+    margin-bottom: 1rem;
+}
+
 #search-input {
     width: 40%;
 }
+

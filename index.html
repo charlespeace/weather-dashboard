@@ -7,16 +7,20 @@
     <link rel="stylesheet" href="./styles.css" />
     <title>Weather Dashboard</title>
 </head>
-<body class="flex-column min-100-vh">
+<body>
     <header class="hero">
       <h1 class="app-title">Weather Dashboard</h1>
     </header>
     <main class="flex-row justify-space-between">
-        <h2>Search for a City:</h2>
-        <form id="search-form">
-            <input id="search-input"/>
-            <button type="submit">Search</button>
-        </form>
+        <div class="row">
+            <h2>Search for a City:</h2>
+            <form id="search-form">
+                <input id="search-input"/>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <section id="weather">
+        </section>
     </main>
     <script src="script.js"></script>
   </body>
